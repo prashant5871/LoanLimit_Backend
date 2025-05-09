@@ -14,6 +14,9 @@ import org.springframework.web.bind.annotation.*;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 @RestController
 @RequestMapping("/auth")
@@ -28,6 +31,11 @@ public class AuthController {
         this.managerService = managerService;
     }
 
+    @GetMapping("/test")
+    public String getMethodName() {
+        return new String("hello world");
+    }
+    
 
     @PostMapping("/admin")
     public ResponseEntity<?> loginAdmin(@RequestBody Map<String, String> request){
